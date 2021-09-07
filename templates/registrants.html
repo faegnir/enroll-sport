@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Successfully registered!</h2><br>
+  <script>
+function ShowAndHide() {
+    var x = document.getElementById('SectionName');
+    if (x.style.display == 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
+</script>
+Click button to see registrants.  <button ONCLICK="ShowAndHide()">CLICK</button>
+<DIV ID="SectionName" STYLE="display:none"><h1>Registrants</h1>
+
+    <table>
+        <thead>
+            <tr>
+            <th>Name</th>
+            <th>Sport</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for name in registrants %}
+             <tr>
+                 <td>{{name}}</td>
+                 <td>{{ registrants[name] }}</td>
+             </tr>
+            {% endfor %}
+        </tbody>
+    </table></DIV>
+
+
+{% endblock %}
